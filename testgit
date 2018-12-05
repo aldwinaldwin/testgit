@@ -2,3 +2,145 @@ init:
 $ git add testgit
 $ git commit -m "init"
 $ git push -u origin master
+
+* commit 379dc2589ea418cc7ec329245f0975f305c79981 (HEAD -> master, origin/master)
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+make small missstake:
+$ git add testgit
+$ git commit -m "missstake"
+$ git push -u origin master
+
+forgot something:
+$ git reset --soft HEAD~1
+$ git add testgit
+$ git commit -m "added"
+$ git push -u origin master
+
+To https://github.com/aldwinaldwin/testgit.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/aldwinaldwin/testgit.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+* commit b7abc262319f660a2832a9f81a87c9621a92ecc4 (HEAD -> master)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:28:57 2018 +0800
+|
+|     added
+|
+| * commit 734a9a2df7b69bae193d5c2035f169740a93bec4 (origin/master)
+|/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+|   Date:   Wed Dec 5 16:29:10 2018 +0800
+|
+|       missstake
+|
+* commit 379dc2589ea418cc7ec329245f0975f305c79981
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+trying to fix?
+$ git push origin master:somethingelse
+
+* commit b7abc262319f660a2832a9f81a87c9621a92ecc4 (HEAD -> master, origin/somethingelse)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:28:57 2018 +0800
+|
+|     added
+|
+| * commit 734a9a2df7b69bae193d5c2035f169740a93bec4 (origin/master)
+|/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+|   Date:   Wed Dec 5 16:29:10 2018 +0800
+|
+|       missstake
+|
+* commit 379dc2589ea418cc7ec329245f0975f305c79981
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+$ git push -f origin :master
+
+ ! [remote rejected] master (refusing to delete the current branch: refs/heads/master)
+error: failed to push some refs to 'https://github.com/aldwinaldwin/testgit.git'
+
+##$ git reset --hard HEAD~1
+##
+##* commit b7abc262319f660a2832a9f81a87c9621a92ecc4 (origin/somethingelse)
+##| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+##| Date:   Wed Dec 5 17:28:57 2018 +0800
+##|
+##|     added
+##|
+##| * commit 734a9a2df7b69bae193d5c2035f169740a93bec4 (origin/master)
+##|/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+##|   Date:   Wed Dec 5 16:29:10 2018 +0800
+##|
+##|       missstake
+##|
+##* commit 379dc2589ea418cc7ec329245f0975f305c79981 (HEAD -> master)
+##  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+##  Date:   Wed Dec 5 16:26:34 2018 +0800
+##
+##      init
+#####  LOST ALL CHANGES
+
+$ git reset --soft HEAD~1
+
+* commit b7abc262319f660a2832a9f81a87c9621a92ecc4 (origin/somethingelse)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:28:57 2018 +0800
+|
+|     added
+|
+| * commit 734a9a2df7b69bae193d5c2035f169740a93bec4 (origin/master)
+|/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+|   Date:   Wed Dec 5 16:29:10 2018 +0800
+|
+|       missstake
+|
+* commit 379dc2589ea418cc7ec329245f0975f305c79981 (HEAD -> master)
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+$ git push -f origin master
+
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/aldwinaldwin/testgit.git
+ + 734a9a2...379dc25 master -> master (forced update)
+
+* commit b7abc262319f660a2832a9f81a87c9621a92ecc4 (origin/somethingelse)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:28:57 2018 +0800
+|
+|     added
+|
+* commit 379dc2589ea418cc7ec329245f0975f305c79981 (HEAD -> master, origin/master)
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+$ git push -f origin :somethingelse
+To https://github.com/aldwinaldwin/testgit.git
+ - [deleted]         somethingelse
+
+* commit 379dc2589ea418cc7ec329245f0975f305c79981 (HEAD -> master, origin/master)
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+$ git add testgit
+$ git commit -m "fixed"
+$ git push -u origin master
