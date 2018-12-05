@@ -2,4 +2,31 @@ $ git add test2
 $ git commit -m "init test 2"
 $ git push -u origin master
 
+* commit 640817b114f235fb9ee0d5c638949a39b42874e5 (HEAD -> master, origin/master)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:52:12 2018 +0800
+|
+|     init test 2
+|
 
+$ git add test2
+$ git commit -m "not happy"
+$ git push -u origin master
+
+* commit d38afc99a50c6949c402a6d34b3aac82653932b7 (HEAD -> master, origin/master)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:53:23 2018 +0800
+|
+|     not happy
+|
+* commit 640817b114f235fb9ee0d5c638949a39b42874e5
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:52:12 2018 +0800
+|
+|     init test 2
+|
+
+$ git reset --soft HEAD~1
+$ git add test2
+$ git commit -m "now happy"
+$ git push -f origin master
