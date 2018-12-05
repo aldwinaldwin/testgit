@@ -144,3 +144,19 @@ To https://github.com/aldwinaldwin/testgit.git
 $ git add testgit
 $ git commit -m "fixed"
 $ git push -u origin master
+
+* commit c448e8ccb3b8f23a17bc2cfcad22e4fcce86b161 (HEAD -> master, origin/master)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Wed Dec 5 17:48:47 2018 +0800
+|
+|     fixed
+|
+* commit 379dc2589ea418cc7ec329245f0975f305c79981
+  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+  Date:   Wed Dec 5 16:26:34 2018 +0800
+
+      init
+
+$ git add testgit
+$ git commit -m "result"
+$ git push -u origin master
