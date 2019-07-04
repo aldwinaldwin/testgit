@@ -160,3 +160,72 @@ $ git push -u origin master
 $ git add testgit
 $ git commit -m "result"
 $ git push -u origin master
+
+
+
+##### testing merging (start at bottom commit to retrace steps)
+
+$ git checkout master
+$ vim test3
+$ git add test3; git commit
+* commit f1a43204ef591f97c2bb36c3315e3462dc4bd195 (HEAD -> master)
+| Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| Date:   Thu Jul 4 15:26:43 2019 +0800
+|
+|     no branch2 yet after   branch2: git merge master
+|
+$ git checkout branch2
+$ git merge master
+| *   commit 1955918e9e1d8c93c664f701a4bf6398e188ecb6 (branch2)
+| |\  Merge: 78fe3fa 38f37a8
+| |/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+|/|   Date:   Thu Jul 4 15:25:02 2019 +0800
+| |
+| |       Merge branch 'master' into branch2
+| |
+$ vim test3
+$ git add test3; git commit
+* | commit 38f37a8a63aa915fdd32b0ed7782617b1d9fd4d2
+| | Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| | Date:   Thu Jul 4 15:24:13 2019 +0800
+| |
+| |     other commit on master while having branches
+| |
+$ git checkout master
+$ vim test3
+$ git add test3; git commit
+* | commit 28d9dc9e769adb5d51f1e7c3694661631af7e51e
+| | Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| | Date:   Thu Jul 4 15:23:31 2019 +0800
+| |
+| |     test3 while have branches
+| |
+ $ git checkout master
+ $ git checkout -b branch2
+ $ vim branch2.txt
+ $ git add branch2.txt; git commit
+| * commit 78fe3fa1fe93d3ca33f4d7071d0f25e3e2c44db1
+|/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+|   Date:   Thu Jul 4 15:20:54 2019 +0800
+|
+|       branch2 commit1
+|
+$ vim branch1.txt
+$ git add branch1.txt; git commit
+| * commit bf031d9aff12cb33cab7a05d3dde10294c0b938f (branch1)
+| | Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+| | Date:   Thu Jul 4 15:19:54 2019 +0800
+| |
+| |     branch1 commit 1
+| |
+$ git checkout -b branch1
+$ vim branch1
+$ git add branch1.txt; git commit
+| * commit ea56e1b474eefb30b30586884f03ff7b2c29e820
+|/  Author: aldwinaldwin <aldwinaldwin@users.noreply.github.com>
+|   Date:   Thu Jul 4 15:19:30 2019 +0800
+|
+|       branch1 - commit1
+|
+
+
